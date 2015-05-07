@@ -7,7 +7,7 @@ Gem::Specification.new do |s|
   s.authors     = ["Henry Stanley"]
   s.email       = 'henry@henrystanley.com'
   s.files       = ["lib/aha.rb"]
-  s.homepage    = ''
+  s.homepage    = 'https://github.com/henryaj/aha-rb'
   s.license     = 'MIT'
   s.test_files    = s.files.grep(%r{^(test|spec|features)/})
   s.require_paths = ["lib"]
