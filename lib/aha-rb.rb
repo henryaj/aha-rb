@@ -2,27 +2,35 @@ require 'httparty'
 
 class Aha
   include HTTParty
-  base_uri 'secure.aha.io'
 
   def initialize(username, password, domain)
+    @base_uri = "https://#{domain}.aha.io"
     @auth = { :username => username, :password => password }
     @headers = { "X-AHA-ACCOUNT" => domain }
   end
 
+  def valid?
+    self.class.get('/api/')
+  end
+
   def releases
-    self.class.get('/api/v1/releases/', {:basic_auth => @auth})["releases"]
+    aha_get('/api/v1/releases/')["releases"]
   end
 
   def release(release_id)
-    self.class.get("/api/v1/releases/#{release_id}", {:basic_auth => @auth})["release"]
+    aha_get("/api/v1/releases/#{release_id}")["release"]
   end
 
   def products
-    self.class.get('/api/v1/products/', {:basic_auth => @auth})["products"]
+    aha_get('/api/v1/products/')["products"]
   end
 
   def product_releases(product_id)
-    self.class.get("/api/v1/products/#{product_id}/releases", {:basic_auth => @auth})["releases"]
+    aha_get("/api/v1/products/#{product_id}/releases")["releases"]
+  end
+
+  def aha_get(route)
+    self.class.get(@base_uri + route, { :basic_auth => @auth, :headers => @headers })
   end
 
 end
