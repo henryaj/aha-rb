@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name        = 'aha-rb'
-  s.version     = '0.0.2'
+  s.version     = '0.0.3'
   s.date        = '2015-05-07'
   s.summary     = "Interact with the AHA! API"
   s.description = "A gem for interacting with the AHA! API."
