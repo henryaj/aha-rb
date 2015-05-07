@@ -9,11 +9,11 @@ Gem::Specification.new do |s|
   s.files       = ["lib/aha.rb"]
   s.homepage    = ''
   s.license     = 'MIT'
-  spec.test_files    = spec.files.grep(%r{^(test|spec|features)/})
-  spec.require_paths = ["lib"]
+  s.test_files    = s.files.grep(%r{^(test|spec|features)/})
+  s.require_paths = ["lib"]
 
-  spec.add_dependency 'httparty'
+  s.add_dependency 'httparty'
 
-  spec.add_development_dependency 'rspec'
-  spec.add_development_dependency 'rake'
+  s.add_development_dependency 'rspec'
+  s.add_development_dependency 'rake'
 end
