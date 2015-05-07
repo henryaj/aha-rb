@@ -6,4 +6,21 @@ Very alpha.
 
 ## Usage
 
-`@aha = Aha.new("USERNAME", "PASSWORD", "SUBDOMAIN")`
+Install the gem:
+
+`gem install aha-rb`
+
+or add it to your Gemfile:
+
+`gem 'aha-rb'`
+
+and then:
+
+```ruby
+require 'aha-rb'
+
+aha = Aha.new("USERNAME", "PASSWORD", "SUBDOMAIN")
+
+aha.releases # => JSON array of all releases
+aha.release(id) # => JSON containing specified release
+```
